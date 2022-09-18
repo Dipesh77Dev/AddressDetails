@@ -22,11 +22,23 @@ module.exports.addCity = (req, res) => {
 module.exports.getCity = (req, res) => {
     City.find()
     .then((data) => {
-        // res.send(data);
+        res.send(data);
         // res.json(data);
-        res.send({"cities" : City});
+        // res.send({"cities" : City});
     })
     .catch((err) => {
         res.json(err);
     })
+}
+
+module.exports.getByIdCity = (req, res) => {
+    City.findById(req.params.id)
+    .then((data) =>{
+            res.send(data);
+        })
+    .catch(
+        (err) => {
+            res.status(500).send(err);
+        }
+    )
 }

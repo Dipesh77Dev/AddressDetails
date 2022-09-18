@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const { ObjectId } = mongoose.Schema.Types;
+// const { id } = mongoose.Schema.Types;
 
 const addressSchema = new mongoose.Schema({
     id : {
@@ -26,6 +27,7 @@ const addressSchema = new mongoose.Schema({
         maxLength : 50
     },
     cityId : {
+        // type : id,
         // type : mongoose.Schema.Types.ObjectId, 
         type : ObjectId, 
         ref : "city",

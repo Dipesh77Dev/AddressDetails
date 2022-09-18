@@ -12,7 +12,8 @@ module.exports.addAddress= (req, res) => {
     addressDetails
     .save(addressDetails)
     .then((data) => {
-        res.send(data);
+        // res.send(data);
+        res.json({"message" : "Successfully added new city"});
     })
     .catch((err) => {
         res.json(err)
@@ -28,3 +29,8 @@ module.exports.getAddress= (req, res) => {
         res.json(err);
     })
 }
+
+/*
+Whenever in the schema of one collection we provide a reference (in any field) to a document from any other collection, we need a populate() method to fill the field with that document.
+.populate({path: cityId, select:['name', 'shortName']});
+*/
