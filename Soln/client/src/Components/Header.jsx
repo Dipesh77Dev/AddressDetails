@@ -2,21 +2,28 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="dark" >
       <Container>
-        <Nav>
+        {/* <Nav>
           <Nav.Link href="#home">Home</Nav.Link>
           <Nav.Link href="#features">Address</Nav.Link>
           <Nav.Link href="#pricing">City</Nav.Link>
+        </Nav> */}
+        <Nav>
+          <NavLink style = {{marginRight : 30}} to ="/">Home</NavLink>
+          <NavLink style = {{marginRight : 30}} to ="/address">Address Detail</NavLink>
+          <NavLink style = {{marginRight : 30}} to ="/city">City Detail</NavLink>
+          <NavLink style = {{marginRight : 30}} to ="/addCity">Add City</NavLink>
         </Nav>
         {/* <Nav>
           <Link to ="/">Home</Link>
-          <Link to ="/address">Address</Link>
-          <Link to ="/city">City</Link>
+          <Link to ="/address">AddressDetail</Link>
+          <Link to ="/city">CityDetail</Link>
         </Nav> */}
       </Container>
     </Navbar>

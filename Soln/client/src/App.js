@@ -4,34 +4,35 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
 import Header from './Components/Header.jsx';
 import Home from './Components/Home.jsx';
+import NotFound from './Components/NotFound.jsx';
 import AddressDetails from "./Components/AddressDetails.jsx";
 import CityDetails from "./Components/CityDetails.jsx";
+import AddCity from './Components/AddCity.jsx';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom" ;
-import AddCity from './Components/AddCity.jsx';
 
 function App() {
   return (
     <>
-      {/* <Router>
+      <Router>
       <Header />
         <Routes>
-          <Route path = "/" element = {<Home />}></Route>
-          <Home />
-          <Route path = "/address" element = {<AddressDetails />}></Route>
-          <Home />
-          <Route path = "/city" element = {<CityDetails />}></Route>
-          <Home />
+          <Route exact path = "/" element = {<Home />}></Route>
+          <Route exact path = "/address" element = {<AddressDetails />}></Route>
+          <Route exact path = "/city" element = {<CityDetails />}></Route>
+          <Route exact path = "/addCity" element = {<AddCity />}></Route>
+          <Route path = "*" element = {<NotFound />} />
         </Routes>
-      </Router> */}
+      </Router>
 
       {/* <Header />
-      <Home /> */}
+      <Home /> }
       <AddressDetails />
       <hr />
       <CityDetails />
       <hr />
       <AddCity />
+      */}
     </>
   );
 }

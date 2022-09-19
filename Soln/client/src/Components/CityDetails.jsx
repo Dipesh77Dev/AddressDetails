@@ -2,23 +2,36 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import { Link, useParams } from "react-router-dom";
 
 const CityDetails = () => {
   const [city, setCity] = useState([]);
+  // const [city, setCity] = useState({
+  //   id : "",
+  //   name : "",
+  //   shortName : "",
+  //   pinCode : "",
+  //   district : ""
+  // });
+
+  const { _id } = useParams();
 
   useEffect(() => {
     getCity();
+    loadCity();
   }, []);
 
   const getCity = async () =>{
-    const res = await axios.get("http://localhost:3000/cities");
-    // console.log(res, res.data,res.status);
-    if(res.status === 200){
-      setCity(res.data);
-      // console.log("Raj", city);
-    }
+    const result = await axios.get("http://localhost:3000/cities")
+      // console.log(result);
+      setCity(result.data);
   }
   // console.log(res);
+
+  const loadCity = async () => {
+    const res2 = await axios.get(`http://localhost:3000/cities/${_id}`)
+    setCity(res2.data);
+  }
 
   return (
   <>
@@ -34,14 +47,8 @@ const CityDetails = () => {
           <th>Action</th>
         </tr>
       </thead>
+      
       <tbody style = {{textAlign: "center"}}>
-        {/* <tr>
-          <td>4</td>
-          <td>Surat</td>
-          <td>ST</td>
-          <td>394107</td>
-          <td>Surat</td>
-        </tr> */}
         {
           city.map((item) =>{
             return(
@@ -52,7 +59,7 @@ const CityDetails = () => {
                 <td>{item.pinCode}</td>
                 <td>{item.district}</td>
                 <td>
-                <Button variant="primary">Edit</Button>
+                <Link style = {{marginRight: 20}} to = "/addCity" ><Button variant="primary">Edit</Button></Link>
                 <Button variant="warning">Delete</Button>
                 </td>
               </tr>
@@ -61,8 +68,19 @@ const CityDetails = () => {
         }
         </tbody>
         </Table>
+        {/* <button style = {{marginRight: 50}}> Add City </button> */}
     </>
   )
 }
 
 export default CityDetails;
+
+/*
+<tr>
+     <td>4</td>
+     <td>Surat</td>
+     <td>ST</td>
+     <td>394107</td>
+     <td>Surat</td>
+ </tr>
+ */
