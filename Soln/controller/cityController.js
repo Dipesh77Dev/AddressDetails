@@ -32,7 +32,7 @@ module.exports.getCity = (req, res) => {
 }
 
 module.exports.getByIdCity = (req, res) => {
-    City.findById(req.params.id)
+    City.findById(req.params._id)
     .then((data) =>{
             res.send(data);
         })

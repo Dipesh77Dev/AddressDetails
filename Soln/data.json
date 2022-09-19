@@ -1,0 +1,81 @@
+{
+  "cities": [
+    {
+      "id": 4,
+      "name": "Surat",
+      "shortName": "ST",
+      "pinCode": "394107",
+      "district": "Surat"
+    },
+    {
+      "id": 5,
+      "name": "Hyderabad",
+      "shortName": "HD",
+      "pinCode": "500001",
+      "district": "Hyderabad"
+    },
+    {
+      "id": 6,
+      "name": "Banglore",
+      "shortName": "BG",
+      "pinCode": "530068",
+      "district": "Banglore"
+    },
+    {
+      "id": 7,
+      "name": "Mumbai",
+      "shortName": "MB",
+      "pinCode": "400029",
+      "district": "Banglore"
+    },
+    {
+      "id": 9,
+      "name": "Random Data",
+      "shortName": "RD",
+      "pinCode": "400050",
+      "district": "Random Data"
+    }
+  ],
+  "addressdetails": [
+    {
+      "id": 1,
+      "addressLine1": "E-2, 1004, Neelkanth Residency",
+      "addressLine2": "Kosad Cross Road",
+      "landMark": "Near Madhuram LG Showroom",
+      "locality": "Amroli",
+      "cityId": 4
+    },
+    {
+      "id": 2,
+      "addressLine1": "E-1, 1002, Neelkanth Residency",
+      "addressLine2": "Kosad Cross Road",
+      "landMark": "Near Madhuram LG Showroom",
+      "locality": "Amroli",
+      "cityId": 4
+    },
+    {
+      "id": 3,
+      "addressLine1": "D-1, 1000, Neelkanth Residency",
+      "addressLine2": "Cross Road",
+      "landMark": "Near LG Showroom",
+      "locality": "Amravati",
+      "cityId": 5
+    },
+    {
+      "id": 8,
+      "addressLine1": "A-1, 1010, Neelkanth Residency",
+      "addressLine2": "Cross Road",
+      "landMark": "Near LG Showroom",
+      "locality": "Badlapur",
+      "cityId": 5
+    },
+    {
+      "id": 10,
+      "addressLine1": "A-1, 1010, Neelkanth Residency",
+      "addressLine2": "Cross Road",
+      "landMark": "Near LG Showroom",
+      "locality": "Random Data",
+      "cityId": 5
+    }
+  ]
+}

@@ -35,6 +35,15 @@ app.use("/api", cityRoutes)
 const addressRoutes = require('./routes/addressRoutes.js');
 app.use("/api", addressRoutes)
 
+/*
+Running json file - 
+S1 - npm install -g json-server
+S2 - Create a db.json file with some data.
+S3 - json-server --watch db.json
+*/
+
+
+/*
 // read/write in json file
 const fs = require('fs');
 
@@ -44,6 +53,7 @@ app.get("/", (req, res) => {
     res.send(details);
     // res.send(JSON.stringify(details));
 });
+*/
 
 /*
 // Writing json file - 
@@ -96,4 +106,10 @@ app.get("/", function(req, res){
 Quite simply it passes the HTTP request and response objects into the function (usually an "app.get()" or "app.post()" ).
 The req object contains a whole bunch of data about the request, such as parameters, queries, returned data from a form, cookies and more.
 The res object is the response sent back to client, this might take the form of res.send, res.render, or res.redirect ...
+*/
+
+/*
+cities & address Detail is defined as - in json file we had 2 objects i.e cities and address, so whatever properties are there in json file will
+act as an address.
+We can make various calls to it.
 */

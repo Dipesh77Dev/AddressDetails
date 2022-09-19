@@ -4,7 +4,7 @@ const cityDetails = require('../controller/cityController.js');
 
 router.post("/addCityDetails", cityDetails.addCity)
 router.get("/getCityDetails", cityDetails.getCity)
-router.get("/:id", cityDetails.getByIdCity)
+router.get("/getCityDetails/:id", cityDetails.getByIdCity)
 
 module.exports = router;
 
