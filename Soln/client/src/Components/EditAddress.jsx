@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const AddAddress = () => {
+const EditAddress = () => {
   // let history = useHistory(); - history is not used in new version
   let navigate = useNavigate();
+  const {id} = useParams();
 
   const [address, setAddress] = useState({
     addressLine1: "",
@@ -17,26 +18,32 @@ const AddAddress = () => {
   const { addressLine1, addressLine2, landMark, locality, cityId } = address;
 
   const onInputChange = (e) => {
-    console.log(e.target.value);
-    // setCity({[e.target.name] : e.target.value});
+    // console.log(e.target.value);
     setAddress({...address, [e.target.name] : e.target.value});
   }
 
   const onSubmit = async(e) => {
-     e.preventDefault(); // if we not give this it will show what we type 
-     await axios.post("http://localhost:3000/addressdetails", address);
-    //  <Navigate to = "/city" />
+     e.preventDefault(); 
+     await axios.put(`http://localhost:3000/addressdetails/${id}`, address);
     navigate("/address", {replace : true});
   }
-  //   navigate("/addressdetails", {replace : true});
   
+  const loadAddress = async () => {
+    const result = await axios.get(`http://localhost:3000/addressdetails/${id}`);
+    setAddress(result.data);
+  };
+
+  useEffect(() => {
+    loadAddress();
+  }, []);
+
   return (
     <>
       {/* <h1 style={{ textAlign: "center" }}> ADD CITY </h1> */}
 
       <div className="container">
       <div className="w-75 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">ADD CITY</h2>
+        <h2 className="text-center mb-4">ADD ADDRESS</h2>
         <form onSubmit={e => onSubmit(e)}>
           <div className="form-group">
             <input
@@ -93,7 +100,7 @@ const AddAddress = () => {
               onChange={e => onInputChange(e)}
             />
           </div>
-          <button className="btn btn-primary btn-block">Add Address</button>
+          <button className="btn btn-primary btn-block">Update Address</button>
         </form>
       </div>
     </div>
@@ -101,4 +108,4 @@ const AddAddress = () => {
   );
 };
 
-export default AddAddress;
+export default EditAddress;

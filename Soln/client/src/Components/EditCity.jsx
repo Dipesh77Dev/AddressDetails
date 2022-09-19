@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+// import jsonData from "./data.json";
 
-const AddCity = () => {
-  // let history = useHistory(); - history is not used in new version
+const EditCity = () => {
+  // let history = useHistory(); - history is not used
   let navigate = useNavigate();
+  const {id} = useParams();
+//   alert(id);
 
   const [city, setCity] = useState({
     name: "",
@@ -13,28 +16,34 @@ const AddCity = () => {
     district: "",
   });
 
-  const { name, shortName, pinCode, district } = city; // Destrcture
+  const { name, shortName, pinCode, district } = city; 
 
   const onInputChange = (e) => {
-    console.log(e.target.value);
-    // setCity({[e.target.name] : e.target.value});
+    // console.log(e.target.value);
     setCity({...city, [e.target.name] : e.target.value});
   }
 
   const onSubmit = async(e) => {
-     e.preventDefault(); // if we not give this it will show what we type 
-     await axios.post("http://localhost:3000/cities", city);
-    //  <Navigate to = "/city" />
+     e.preventDefault();
+     await axios.put(`http://localhost:3000/cities/${id}`, city);
     navigate("/city", {replace : true});
   }
 
+  const loadCity = async () => {
+    // const result = await axios.get("http://localhost:3000/cities/" + id);
+    const result = await axios.get(`http://localhost:3000/cities/${id}`);
+    setCity(result.data);
+  };
+
+  useEffect(() => {
+    loadCity();
+  }, []);
+
   return (
     <>
-      {/* <h1 style={{ textAlign: "center" }}> ADD CITY </h1> */}
-
       <div className="container">
       <div className="w-75 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">ADD CITY</h2>
+        <h2 className="text-center mb-4">UPDATE CITY</h2>
         <form onSubmit={e => onSubmit(e)}>
           <div className="form-group">
             <input
@@ -81,7 +90,7 @@ const AddCity = () => {
               onChange={e => onInputChange(e)}
             />
           </div>
-          <button className="btn btn-primary btn-block">Add City</button>
+          <button className="btn btn-warning btn-block">Update City</button>
         </form>
       </div>
     </div>
@@ -89,43 +98,19 @@ const AddCity = () => {
   );
 };
 
-export default AddCity;
+export default EditCity;
 
 /*
-<Form>
-    <Form.Group className="mb-3" controlId="formBasicEmail">
-      <Form.Label>Email address</Form.Label>
-      <Form.Control type="email" placeholder="Enter email" />
-      <Form.Text className="text-muted">
-        We'll never share your email with anyone else.
-      </Form.Text>
-    </Form.Group>
-
-    <Form.Group className="mb-3" controlId="formBasicPassword">
-      <Form.Label>Password</Form.Label>
-      <Form.Control type="password" placeholder="Password" />
-    </Form.Group>
-    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-      <Form.Check type="checkbox" label="Check me out" />
-    </Form.Group>
-    <Button variant="primary" type="submit">
-      Submit
-    </Button>
-  </Form>
-*/
-
-
- 
-/* 
 <div className="form-group">
-  <input
-    type="number"
-    className="form-control form-control-lg"
-    placeholder="Enter Your City Id"
-    name="id"
-    value={id}
-    maxlength = "5"
-    onChange={e => onInputChange(e)}
-  />
-</div>
+            <input
+              type="number"
+              className="form-control form-control-lg"
+              placeholder="Enter Your City Id"
+              name="id"
+              value={id}
+              maxlength = "5"
+              onChange={e => onInputChange(e)}
+            />
+          </div>
 */
+

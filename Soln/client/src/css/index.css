@@ -10,7 +10,7 @@
     align-items: center;
   }
   
-/* Add city */
+/* Add city 
 input[type = "text"],
 input[type = "number"],
 select{
@@ -36,3 +36,4 @@ input[type="submit"]{
 input[type="submit"]:hover{
     background-color: green;
 }
+*/

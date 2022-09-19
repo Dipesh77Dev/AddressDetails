@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
 
 const AddressDetails = () => {
   const [address, setAddress] = useState([]);
@@ -10,10 +12,13 @@ const AddressDetails = () => {
   }, []);
 
   const getAddress = async () =>{
-    const res = await axios.get("http://localhost:3000/addressdetails");
-    if(res.status === 200){
-      setAddress(res.data);
-    }
+    const result = await axios.get("http://localhost:3000/addressdetails");
+      setAddress(result.data);
+  }
+
+  const deleteAddress = async (id) => {
+    await axios.delete(`http://localhost:3000/addressdetails/${id}`);
+    getAddress();
   }
 
   return (
@@ -22,25 +27,31 @@ const AddressDetails = () => {
       <Table striped bordered hover>
       <thead style = {{textAlign: "center"}}>
         <tr>
-          <th>id</th>
+          <th>No.</th>
           <th>AddressLine1</th>
           <th>AddressLine2</th>
           <th>LandMark</th>
           <th>Locality</th>
           <th>CityId</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody style = {{textAlign: "center"}}>
         {
-          address.map((item) =>{
+          address.map((item, index) =>{
             return(
-              <tr key = {item._id}>
-                <td>{item.id}</td>
+              <tr>
+                <td>{index + 1}</td>
                 <td>{item.addressLine1}</td>
                 <td>{item.addressLine2}</td>
                 <td>{item.landMark}</td>
                 <td>{item.locality}</td>
                 <td>{item.cityId}</td>
+                <td>
+                <Link style = {{marginRight: 20}} to = { `/address/${item.id}` }><Button variant="primary">View</Button></Link>
+                <Link style = {{marginRight: 20}} to = { `/editaddress/${item.id}` }><Button variant="primary">Edit</Button></Link>
+                <Button variant="warning" onClick = {() => deleteAddress(item.id)}>Delete</Button>
+                </td>
               </tr>
             )
           })
