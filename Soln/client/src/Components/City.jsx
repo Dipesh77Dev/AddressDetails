@@ -11,12 +11,13 @@ const [city, setCity] = useState([]);
   
 useEffect(() => {
     getCity();
-    ViewCity();
+    // ViewCity();
+    // EditCity();
 }, []);
 
 const getCity = async () =>{
     const result = await axios.get("http://localhost:3000/city") // console.log(result);
-    setCity(result.data.reverse()); // setCity(result.data);
+    setCity(result.data); 
 };
 
 const deleteCity = async (id) => {
@@ -25,8 +26,6 @@ const deleteCity = async (id) => {
 }
 
 // Add City 
-// let navigate = useNavigate();
-
 const [addCity, setAddCity] = useState({
     name: "",
     shortName: "",
@@ -51,25 +50,9 @@ const [addCity, setAddCity] = useState({
     getCity();
 }
 
-// View City 
-const [viewCity, setViewCity] = useState({
-    name: "",
-    shortName: "",
-    pinCode: "",
-    district: "",
-});
-
-const { id } = useParams();
-
-const ViewCity = async () => {
-    const res = await axios.get(`http://localhost:3000/city/${id}`);
-    console.log(res);
-    setViewCity(res.data);
-  };
-
 // Edit City
-let navigate = useNavigate();
-// const {id} = useParams();
+// let navigate = useNavigate();
+const {id} = useParams();
 
 const [editCity, setEditCity] = useState({
     name: "",
@@ -89,18 +72,42 @@ const onInputChange2 = (e) => {
      getCity();
   }
 
-  const EditCity = () => {
+//   const EditCity = () => {
+//     getCity();
+// }
+
+const EditCity = async () => {
+    const result = await axios.get(`http://localhost:3000/city/${id}`);
+    setEditCity(result.data);
     getCity();
-}
+  };
 
-//   const loadCity = async () => {
-//     const result = await axios.get(`http://localhost:3000/city/${id}`);
-//     setCity(result.data);
-//   };
+// View City 
+const [viewCity, setViewCity] = useState({
+    name: "",
+    shortName: "",
+    pinCode: "",
+    district: "",
+});
 
-//   useEffect(() => {
-//     EditCity();
-//   }, []);
+// const { id } = useParams();
+
+const ViewCity = async () => {
+    const res = await axios.get(`http://localhost:3000/city/${id}`);
+    console.log(res);
+    setViewCity(res.data);
+  };
+
+const [search,setSearch] =useState('');
+
+const searchRecords = async () =>
+    {
+        alert(search)
+        await axios.get(`http://localhost:3000/city/${search}`)
+        .then(response => {
+        setCity(response.data);
+        });
+    }
 
   return (
     <>
@@ -131,8 +138,6 @@ const onInputChange2 = (e) => {
                 <td>{item.pinCode}</td>
                 <td>{item.district}</td>
                 <td>
-                {/* <Link style = {{marginRight: 20}} to = { `/city/${item.id}` }><Button variant="primary">View</Button></Link>
-                <Link style = {{marginRight: 20}} to = { `/editCity/${item.id}` }><Button variant="warning">Edit</Button></Link> */}
                 <Button style = {{marginRight: 20}} variant="primary" onClick = {() => ViewCity(item.id)}>VIEW</Button>
                 <Button style = {{marginRight: 20}} variant="warning" onClick = {() => EditCity(item.id)}>EDIT</Button>
                 <Button style = {{marginRight: 20}} variant="danger" onClick = {() => deleteCity(item.id)}>Delete</Button>
@@ -146,6 +151,11 @@ const onInputChange2 = (e) => {
         </tbody>
         </Table>
         <hr /><br />
+
+        <input type="text" id="form1" onChange={(e)=>setSearch(e.target.value)} class="form-control" placeholder="Search Employee Here" style={{backgroundColor:"#ececec"}}/>
+        <button type="button" onClick={searchRecords}  class="btn btn-success">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
 
         {/* Add City Form  */}
         <div className="container">
@@ -163,6 +173,7 @@ const onInputChange2 = (e) => {
               onChange={e => onInputChange(e)}
               required
               maxLength = "10"
+            //   autoComplete="on"
             /> 
         
           </div>
@@ -206,24 +217,6 @@ const onInputChange2 = (e) => {
     <hr />
     <br />
 
-
-    {/* View City  */}
-    <div className="container py-4">
-      <h1 className="display-4">City Id: {id}</h1>
-      <hr />
-      <ul className="list-group w-50">
-        <li className="list-group-item">name: {viewCity.name}</li>
-        <li className="list-group-item">shortName: {viewCity.shortName}</li>
-        <li className="list-group-item">pinCode: {viewCity.pinCode}</li>
-        <li className="list-group-item">district: {viewCity.district}</li>
-      </ul>
-    
-    <Link className="btn btn-primary mt-4" to="/">
-        Back to Home
-      </Link>
-      </div>
-        <hr />
-        <br />
 
 {/* Edit City */}
 <div className="container">
@@ -275,10 +268,29 @@ const onInputChange2 = (e) => {
               onChange={e => onInputChange2(e)}
             />
           </div>
-          <button className="btn btn-warning btn-block">Update City</button>
+          <button className="btn btn-warning btn-block" >Update City</button>
         </form>
       </div>
     </div>
+    <hr />
+    <br />
+
+        {/* View City  */}
+        <div className="container py-4">
+      <h1 className="display-4">City Id: {id}</h1>
+      <hr />
+      <ul className="list-group w-50">
+        <li className="list-group-item">name: {viewCity.name}</li>
+        <li className="list-group-item">shortName: {viewCity.shortName}</li>
+        <li className="list-group-item">pinCode: {viewCity.pinCode}</li>
+        <li className="list-group-item">district: {viewCity.district}</li>
+      </ul>
+    
+    <Link className="btn btn-primary mt-4" to="/">
+        Back to Home
+      </Link>
+      </div>
+
     </>
   )
 }

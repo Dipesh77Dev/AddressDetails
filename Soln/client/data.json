@@ -24,19 +24,27 @@
   ],
   "addressdetails": [
     {
-      "id": 11,
-      "addressLine1": "E-2, 1004, Neelkanth Residency",
-      "addressLine2": "Kosad Cross Road",
+      "id": 12,
+      "addressLine1": "E-2, 1002, Neelkanth Residency",
+      "addressLine2": "Cross Road",
       "landMark": "Near Madhuram LG Showroom",
-      "locality": "Amroli",
-      "cityId": "4"
+      "locality": "Badlapur",
+      "cityId": "5"
     },
     {
       "id": 12,
       "addressLine1": "E-2, 1000, Neelkanth Residency",
       "addressLine2": "Cross Road",
       "landMark": "Near Madhuram LG Showroom",
-      "locality": "Badlapur",
+      "locality": "Amravati",
+      "cityId": "5"
+    },
+    {
+      "id": 12,
+      "addressLine1": "E-2, 1000, Neelkanth Residency",
+      "addressLine2": "Cross Road",
+      "landMark": "Near Madhuram LG Showroom",
+      "locality": "Amravati",
       "cityId": "5"
     }
   ],
@@ -49,18 +57,25 @@
       "district": "Banglore"
     },
     {
-      "id": 2,
-      "name": "Banglore",
-      "shortName": "BG",
-      "pinCode": "530068",
-      "district": "Banglore"
+      "name": "Mumbai",
+      "shortName": "Mumbai",
+      "pinCode": "466",
+      "district": "Mumbai",
+      "id": 3
     },
     {
-      "id": 2,
-      "name": "Banglore",
-      "shortName": "BG",
-      "pinCode": "530068",
-      "district": "Banglore"
+      "name": "Hyderabad",
+      "shortName": "HG",
+      "pinCode": "64444",
+      "district": "Hyderabad",
+      "id": 4
+    },
+    {
+      "name": "sddas",
+      "shortName": "adadad",
+      "pinCode": "422432",
+      "district": "dadada",
+      "id": 5
     }
   ],
   "address": [
@@ -73,7 +88,7 @@
       "cityId": "5"
     },
     {
-      "id": 12,
+      "id": 13,
       "addressLine1": "E-2, 1000, Neelkanth Residency",
       "addressLine2": "Cross Road",
       "landMark": "Near Madhuram LG Showroom",
@@ -81,12 +96,12 @@
       "cityId": "5"
     },
     {
-      "id": 12,
-      "addressLine1": "E-2, 1000, Neelkanth Residency",
+      "id": 14,
+      "addressLine1": "D-2, 999, Neelkanth Residency",
       "addressLine2": "Cross Road",
-      "landMark": "Near Madhuram LG Showroom",
-      "locality": "Badlapur",
-      "cityId": "5"
+      "landMark": "Lg Showroom",
+      "locality": "Akroli",
+      "cityId": "4"
     }
   ]
 }
