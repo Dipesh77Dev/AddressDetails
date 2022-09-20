@@ -9,14 +9,11 @@ const CityDetails = () => {
   
   useEffect(() => {
     getCity();
-    // loadCity();
   }, []);
 
   const getCity = async () =>{
-    const result = await axios.get("http://localhost:3000/cities")
-      // console.log(result);
-      setCity(result.data.reverse());
-      // setCity(result.data);
+    const result = await axios.get("http://localhost:3000/cities") // console.log(result);
+      setCity(result.data.reverse()); // setCity(result.data);
   };
   // console.log(res);
 

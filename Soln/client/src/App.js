@@ -10,11 +10,13 @@ import CityDetails from "./Components/CityDetails.jsx";
 import AddCity from './Components/AddCity.jsx';
 import EditCity from './Components/EditCity.jsx';
 import ViewCity from './Components/ViewCity.jsx';
+import City from './Components/City.jsx';
 
 import AddressDetails from "./Components/AddressDetails.jsx";
 import AddAddress from './Components/AddAddress.jsx';
 import EditAddress from './Components/EditAddress.jsx';
 import ViewAddress from './Components/ViewAddress.jsx';
+import Address from './Components/Address.jsx';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom" ;
 
@@ -31,12 +33,14 @@ function App() {
           <Route exact path = "/city" element = {<CityDetails />}></Route>
           <Route exact path = "/city/:id" element = {<ViewCity />}></Route> 
           <Route exact path = "/editCity/:id" element = {<EditCity />}></Route> {/* Dynamic Routing */}
+          <Route exact path = "/allCity" element = {<City />}></Route> 
 
           {/* Address */}
           <Route exact path = "/addAddress" element = {<AddAddress />}></Route>
           <Route exact path = "/address" element = {<AddressDetails />}></Route>
           <Route exact path = "/address/:id" element = {<ViewAddress />}></Route> 
           <Route exact path = "/editAddress/:id" element = {<EditAddress />}></Route>
+          <Route exact path = "/allAddress" element = {<Address />}></Route> 
           <Route path = "*" element = {<NotFound />} />
         </Routes>
       </Router>

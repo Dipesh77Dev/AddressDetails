@@ -19,6 +19,8 @@ const Header = () => {
           <NavLink style = {{marginRight : 30}} to ="/city">City Detail</NavLink>
           <NavLink style = {{marginRight : 30}} to ="/addCity">Add City</NavLink>
           <NavLink style = {{marginRight : 30}} to ="/addAddress">Add Address</NavLink>
+          <NavLink style = {{marginRight : 30}} to ="/allCity">City</NavLink>
+          <NavLink style = {{marginRight : 30}} to ="/allAddress">Address</NavLink>
         </Nav>
       </Container>
     </Navbar>

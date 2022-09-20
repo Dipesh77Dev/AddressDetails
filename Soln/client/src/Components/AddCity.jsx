@@ -46,6 +46,8 @@ const AddCity = () => {
               onChange={e => onInputChange(e)}
               required
               maxlength = "10"
+        //   required = "required"
+        //   maxlength = "10"
             /> 
             {/* Maximum length is 10 characters only */}
 

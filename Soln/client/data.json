@@ -19,28 +19,7 @@
       "name": "Kolkata",
       "shortName": "KK",
       "pinCode": "401200",
-      "district": "Delhi"
-    },
-    {
-      "id": 6,
-      "name": "Delhi",
-      "shortName": "DH",
-      "pinCode": "400201",
-      "district": "Delhi"
-    },
-    {
-      "id": 8,
-      "name": "Delhi",
-      "shortName": "DH",
-      "pinCode": "401200",
-      "district": "Delhi"
-    },
-    {
-      "id": 9,
-      "name": "Rajasthan",
-      "shortName": "RJ",
-      "pinCode": "401200",
-      "district": "Rajasthan"
+      "district": "Delhah"
     }
   ],
   "addressdetails": [
@@ -51,6 +30,55 @@
       "landMark": "Near Madhuram LG Showroom",
       "locality": "Amroli",
       "cityId": "4"
+    },
+    {
+      "id": 12,
+      "addressLine1": "E-2, 1000, Neelkanth Residency",
+      "addressLine2": "Cross Road",
+      "landMark": "Near Madhuram LG Showroom",
+      "locality": "Badlapur",
+      "cityId": "5"
+    }
+  ],
+  "city": [
+    {
+      "id": 2,
+      "name": "Banglore",
+      "shortName": "BG",
+      "pinCode": "530068",
+      "district": "Banglore"
+    },
+    {
+      "id": 2,
+      "name": "Banglore",
+      "shortName": "BG",
+      "pinCode": "530068",
+      "district": "Banglore"
+    },
+    {
+      "id": 2,
+      "name": "Banglore",
+      "shortName": "BG",
+      "pinCode": "530068",
+      "district": "Banglore"
+    }
+  ],
+  "address": [
+    {
+      "id": 12,
+      "addressLine1": "E-2, 1000, Neelkanth Residency",
+      "addressLine2": "Cross Road",
+      "landMark": "Near Madhuram LG Showroom",
+      "locality": "Badlapur",
+      "cityId": "5"
+    },
+    {
+      "id": 12,
+      "addressLine1": "E-2, 1000, Neelkanth Residency",
+      "addressLine2": "Cross Road",
+      "landMark": "Near Madhuram LG Showroom",
+      "locality": "Badlapur",
+      "cityId": "5"
     },
     {
       "id": 12,
