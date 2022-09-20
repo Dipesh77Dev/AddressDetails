@@ -39,14 +39,16 @@ const AddCity = () => {
           <div className="form-group">
             <input
               type="text"
-              className="form-control form-control-lg"
+              className="form-control form-control-lg form-text"
               placeholder="Enter Your City Name"
               name="name"
               value={name}
               onChange={e => onInputChange(e)}
               required
-              maxLength = "100"
-            />
+              maxlength = "10"
+            /> 
+            {/* Maximum length is 10 characters only */}
+
           </div>
           <div className="form-group">
             <input
@@ -57,7 +59,8 @@ const AddCity = () => {
               value={shortName}
               onChange={e => onInputChange(e)}
               required
-              maxLength = "50"
+              maxlength = "10"
+              
             />
           </div>
           <div className="form-group">

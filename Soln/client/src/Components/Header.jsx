@@ -2,8 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-// import { Link } from "react-router-dom";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -21,14 +20,20 @@ const Header = () => {
           <NavLink style = {{marginRight : 30}} to ="/addCity">Add City</NavLink>
           <NavLink style = {{marginRight : 30}} to ="/addAddress">Add Address</NavLink>
         </Nav>
-        {/* <Nav>
-          <Link to ="/">Home</Link>
-          <Link to ="/address">AddressDetail</Link>
-          <Link to ="/city">CityDetail</Link>
-        </Nav> */}
       </Container>
     </Navbar>
   );
 };
 
 export default Header;
+
+/*
+<Nav>
+  <Link to ="/">Home</Link>
+  <Link to ="/address">AddressDetail</Link>
+  <Link to ="/city">CityDetail</Link>
+</Nav>
+
+<a class = "nav-link" href = "/"> Home</a>
+we can use as <Link to ="/">Home</Link>
+*/

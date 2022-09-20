@@ -33,10 +33,10 @@ const ViewAddress = () => {
         <li className="list-group-item">locality: {address.locality}</li>
         <li className="list-group-item">cityId: {address.cityId}</li>
       </ul>
-    </div>
-    <Link className="btn btn-primary" to="/">
+    <Link className="btn btn-primary mt-4" to="/">
         Back to Home
       </Link>
+      </div>
   </>
   );
 };

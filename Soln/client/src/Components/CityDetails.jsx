@@ -54,8 +54,8 @@ const CityDetails = () => {
                 <td>{item.district}</td>
                 <td>
                 <Link style = {{marginRight: 20}} to = { `/city/${item.id}` }><Button variant="primary">View</Button></Link>
-                <Link style = {{marginRight: 20}} to = { `/editCity/${item.id}` }><Button variant="primary">Edit</Button></Link>
-                <Button variant="warning" onClick = {() => deleteCity(item.id)}>Delete</Button>
+                <Link style = {{marginRight: 20}} to = { `/editCity/${item.id}` }><Button variant="warning">Edit</Button></Link>
+                <Button variant="danger" onClick = {() => deleteCity(item.id)}>Delete</Button>
                 </td>
               </tr>
               </>

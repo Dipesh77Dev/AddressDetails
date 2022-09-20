@@ -31,10 +31,11 @@ const ViewCity = () => {
         <li className="list-group-item">pinCode: {city.pinCode}</li>
         <li className="list-group-item">district: {city.district}</li>
       </ul>
-    </div>
-    <Link className="btn btn-primary" to="/">
+    
+    <Link className="btn btn-primary mt-4" to="/">
         Back to Home
       </Link>
+      </div>
   </>
   );
 };

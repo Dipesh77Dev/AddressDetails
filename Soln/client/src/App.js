@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-
+import "../node_modules/bootstrap/dist/css/bootstrap.css"
 import Header from './Components/Header.jsx';
 import Home from './Components/Home.jsx';
 import NotFound from './Components/NotFound.jsx';
@@ -54,3 +54,11 @@ function App() {
 }
 
 export default App;
+
+/*
+<Router>
+<Switch>
+<Route exact path = "/" component = {City} />
+</Switch>
+</ Router
+*/

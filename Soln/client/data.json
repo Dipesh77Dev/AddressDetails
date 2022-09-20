@@ -1,20 +1,6 @@
 {
   "cities": [
     {
-      "id": 1,
-      "name": "Surat",
-      "shortName": "ST",
-      "pinCode": "394107",
-      "district": "Surat"
-    },
-    {
-      "id": 2,
-      "name": "Hyderabad",
-      "shortName": "HD",
-      "pinCode": "500001",
-      "district": "Hyderabad"
-    },
-    {
       "id": 3,
       "name": "Banglore",
       "shortName": "BG",
@@ -26,7 +12,7 @@
       "name": "Mumbai",
       "shortName": "MB",
       "pinCode": "400029",
-      "district": "Banglore"
+      "district": "Mumbai"
     },
     {
       "id": 5,
@@ -34,6 +20,27 @@
       "shortName": "KK",
       "pinCode": "401200",
       "district": "Delhi"
+    },
+    {
+      "id": 6,
+      "name": "Delhi",
+      "shortName": "DH",
+      "pinCode": "400201",
+      "district": "Delhi"
+    },
+    {
+      "id": 8,
+      "name": "Delhi",
+      "shortName": "DH",
+      "pinCode": "401200",
+      "district": "Delhi"
+    },
+    {
+      "id": 9,
+      "name": "Rajasthan",
+      "shortName": "RJ",
+      "pinCode": "401200",
+      "district": "Rajasthan"
     }
   ],
   "addressdetails": [
@@ -52,14 +59,6 @@
       "landMark": "Near Madhuram LG Showroom",
       "locality": "Badlapur",
       "cityId": "5"
-    },
-    {
-      "id": 13,
-      "addressLine1": "E-2, 1004, Neelkanth Residency",
-      "addressLine2": "Kosad Cross Road",
-      "landMark": "Near Madhuram LG Showroom",
-      "locality": "Amravati",
-      "cityId": "4"
     }
   ]
 }
