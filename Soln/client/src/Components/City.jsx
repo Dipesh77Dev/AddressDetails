@@ -1,167 +1,196 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import Table from 'react-bootstrap/Table';
+import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Button from 'react-bootstrap/Button';
-import { Link, useNavigate, useParams } from "react-router-dom";
 
 const City = () => {
-    
-// City Details -
-const [city, setCity] = useState([]);
-  
-useEffect(() => {
-    getCity();
-    // ViewCity();
-    // EditCity();
-}, []);
+  // get data -
+  const [record, setRecord] = useState([]);
 
-const getCity = async () =>{
-    const result = await axios.get("http://localhost:3000/city") // console.log(result);
-    setCity(result.data); 
-};
+  const loadCity = async () => {
+    const result = await axios.get("http://localhost:3000/city");
+    setRecord(result.data);
+  };
 
-const deleteCity = async (id) => {
-    await axios.delete(`http://localhost:3000/city/${id}`);
-    getCity();
-}
-
-// Add City 
-const [addCity, setAddCity] = useState({
+  // add Data - 
+  const [city, setCity] = useState({
     name: "",
     shortName: "",
     pinCode: "",
     district: "",
   });
 
-  const { name, shortName, pinCode, district } = city; 
+  const {name, shortName, pinCode, district} = city; // Object Destrcture.
 
   const onInputChange = (e) => {
-    console.log(e.target.value);
-    setAddCity({...addCity, [e.target.name] : e.target.value});
-  }
+    setCity({ ...city, [e.target.name]: e.target.value });
+  };
 
-  const onSubmit = async(e) => {
-     e.preventDefault(); 
-     await axios.post("http://localhost:3000/city", addCity);
-     getCity();
-  }
+  const addCityData = async (e) => {
+    e.preventDefault();
+    e.target.reset();
+    await axios.post("http://localhost:3000/city",city);
+    alert('Data Inserted');
+     
+    loadCity();
+};
 
-  const addCity1 = () => {
-    getCity();
+  // edit Data
+  const editAddressData = async (e) => {
+     
+    loadCity();
+};
+
+const editAddress = async (e) => {
+
 }
 
-// Edit City
-// let navigate = useNavigate();
-const {id} = useParams();
-
-const [editCity, setEditCity] = useState({
-    name: "",
-    shortName: "",
-    pinCode: "",
-    district: "",
-});
-// const { name, shortName, pinCode, district } = city; 
-
-const onInputChange2 = (e) => {
-    setEditCity({...editCity, [e.target.name] : e.target.value});
-  }
-
-  const onSubmit2 = async(e) => {
-     e.preventDefault();
-     await axios.put(`http://localhost:3000/city/${id}`, editCity);
-     getCity();
-  }
-
-//   const EditCity = () => {
-//     getCity();
-// }
-
-const EditCity = async () => {
-    const result = await axios.get(`http://localhost:3000/city/${id}`);
-    setEditCity(result.data);
-    getCity();
+  // delete data
+  const deleteAddress = async (id) => {
+    await axios.delete(`http://localhost:3000/address/${id}`);
+    loadCity();
   };
 
-// View City 
-const [viewCity, setViewCity] = useState({
-    name: "",
-    shortName: "",
-    pinCode: "",
-    district: "",
-});
+  // view Data
 
-// const { id } = useParams();
-
-const ViewCity = async () => {
-    const res = await axios.get(`http://localhost:3000/city/${id}`);
-    console.log(res);
-    setViewCity(res.data);
-  };
-
-const [search,setSearch] =useState('');
-
-const searchRecords = async () =>
-    {
-        alert(search)
-        await axios.get(`http://localhost:3000/city/${search}`)
-        .then(response => {
-        setCity(response.data);
-        });
-    }
+  useEffect(() => {
+    loadCity();
+  }, []);
 
   return (
     <>
-        {/* City Details */}
-        <h1 style = {{textAlign: "center"}}> City Details</h1>
-      <Table striped bordered hover>
-      <thead style = {{textAlign: "center"}}>
-        <tr>
-          <th>No.</th>
-          <th>Name</th>
-          <th>ShortName</th>
-          <th>PinCode</th>
-          <th>District</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      
-      <tbody style = {{textAlign: "center"}}>
-        {
-          city.map((item, index) =>{
-            return(
-              <>
-              {/* <tr key = {item.id}> */}
-              <tr>
-                <td>{index + 1}</td>
-                <td>{item.name}</td>
-                <td>{item.shortName}</td>
-                <td>{item.pinCode}</td>
-                <td>{item.district}</td>
-                <td>
-                <Button style = {{marginRight: 20}} variant="primary" onClick = {() => ViewCity(item.id)}>VIEW</Button>
-                <Button style = {{marginRight: 20}} variant="warning" onClick = {() => EditCity(item.id)}>EDIT</Button>
-                <Button style = {{marginRight: 20}} variant="danger" onClick = {() => deleteCity(item.id)}>Delete</Button>
-                </td>
-              </tr>
-              </>
-            )
-          })
-        }
 
-        </tbody>
-        </Table>
-        <hr /><br />
+      {/* Edit ADDRESS */}
+      <div class="container-fluid">
+        <div class="row mt-3">
+        <div class="col-sm-4">
+            <div
+              className="box p-3 mb-3 mt-5"
+              style={{ border: "1px solid #d0d0d0" }}
+            >
+              <form onSubmit={editAddressData}> 
+                <h5 className="mb-3 text-center">Update Address Records</h5>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control  mb-3"
+                    name="name"
+                    value={name}
+                    onChange={(e) => onInputChange(e)}
+                    placeholder="Enter City name"
+                    required
+                  />
+                </div>
 
-        <input type="text" id="form1" onChange={(e)=>setSearch(e.target.value)} class="form-control" placeholder="Search Employee Here" style={{backgroundColor:"#ececec"}}/>
-        <button type="button" onClick={searchRecords}  class="btn btn-success">
-            <i class="fa fa-search" aria-hidden="true"></i>
-        </button>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control  mb-3"
+                    name="shortName"
+                    value={shortName}
+                    onChange={(e) => onInputChange(e)}
+                    placeholder="Enter City Short Name"
+                  />
+                </div>
 
-        {/* Add City Form  */}
-        <div className="container">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control mb-3"
+                    name="pinCode"
+                    value={pinCode}
+                    onChange={(e) => onInputChange(e)}
+                    placeholder="Enter City Pin Code"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control mb-3"
+                    name="district"
+                    value={district}
+                    onChange={(e) => onInputChange(e)}
+                    placeholder="Enter City District"
+                    required
+                  />
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block mt-2">
+                  UPDATE City
+                </button>
+              </form>
+            </div>
+          </div>
+          
+          {/* Dispay City */}
+          <div class="col-sm-8">
+            <h5 class="text-center  ml-5 mt-3  mb-5">Display City Records</h5>
+
+            <table class="table table-hover  table-striped table-bordered ml-4">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Name</th>
+                  <th>Short Name</th>
+                  <th>Pin Code</th>
+                  <th>District</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {record.map((name, index) => (
+                  <tr>
+                    <td> {index + 1}</td>
+                    <td>{name.name}</td>
+                    <td>{name.shortName}</td>
+                    <td>{name.pinCode}</td>
+                    <td>{name.district}</td>
+                    <td>
+                      <Button
+                        variant="danger"
+                        onClick={() => {
+                          const confirmBox = window.confirm(
+                            "Do you really want to delete " + name.name
+                          );
+                          if (confirmBox === true) {
+                            deleteAddress(name.id);
+                          }
+                        }} 
+                      > Delete
+                      </Button>
+
+                      <Button
+                      style = {{marginRight: 20}}
+                        variant="warning"
+                        onClick={() => {
+                          const confirmBox = window.confirm(
+                            "Do you really want to Edit " + name.name
+                          );
+                          if (confirmBox === true) {
+                            editAddress(name.id);
+                          }
+                        }} 
+                      > Edit
+                      </Button>
+
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <br />
+
+      {/* Add City */}
+          <div className="container">
       <div className="w-75 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">ADD CITY</h2>
-        <form onSubmit={e => onSubmit(e)}>
+        <h2 className="text-center mb-4">ADD City</h2>
+        <form onSubmit={e => addCityData(e)}>
         {/* <form> */}
           <div className="form-group">
             <input
@@ -173,7 +202,6 @@ const searchRecords = async () =>
               onChange={e => onInputChange(e)}
               required
               maxLength = "10"
-            //   autoComplete="on"
             /> 
         
           </div>
@@ -202,97 +230,25 @@ const searchRecords = async () =>
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type="number"
               className="form-control form-control-lg"
-              placeholder="Enter Your City District"
+              placeholder="Enter Your City district"
               name="district"
               value={district}
               onChange={e => onInputChange(e)}
             />
           </div>
-          <button className="btn btn-primary btn-block" onClick={addCity1}>Add City</button>
+          <button className="btn btn-primary btn-block">Add City</button>
         </form>
       </div>
     </div>
     <hr />
     <br />
-
-
-{/* Edit City */}
-<div className="container">
-      <div className="w-75 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">UPDATE CITY</h2>
-        <form onSubmit={e => onSubmit2(e)}>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control form-control-lg"
-              placeholder="Enter Your City Name"
-              name="name"
-              value={name}
-              onChange={e => onInputChange2(e)}
-              required
-              maxLength = "100"
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control form-control-lg"
-              placeholder="Enter Your City Short Name"
-              name="shortName"
-              value={shortName}
-              onChange={e => onInputChange2(e)}
-              required
-              maxLength = "50"
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="number"
-              className="form-control form-control-lg"
-              placeholder="Enter Your City Pin Code"
-              name="pinCode"
-              value={pinCode}
-              onChange={e => onInputChange2(e)}
-              maxLength = "100"
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control form-control-lg"
-              placeholder="Enter Your City District"
-              name="district"
-              value={district}
-              onChange={e => onInputChange2(e)}
-            />
-          </div>
-          <button className="btn btn-warning btn-block" >Update City</button>
-        </form>
-      </div>
-    </div>
-    <hr />
-    <br />
-
-        {/* View City  */}
-        <div className="container py-4">
-      <h1 className="display-4">City Id: {id}</h1>
-      <hr />
-      <ul className="list-group w-50">
-        <li className="list-group-item">name: {viewCity.name}</li>
-        <li className="list-group-item">shortName: {viewCity.shortName}</li>
-        <li className="list-group-item">pinCode: {viewCity.pinCode}</li>
-        <li className="list-group-item">district: {viewCity.district}</li>
-      </ul>
-    
-    <Link className="btn btn-primary mt-4" to="/">
-        Back to Home
-      </Link>
-      </div>
 
     </>
-  )
-}
+  );
+};
 
 export default City;
+
+  

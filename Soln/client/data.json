@@ -2,10 +2,10 @@
   "cities": [
     {
       "id": 3,
-      "name": "Banglore",
-      "shortName": "BG",
-      "pinCode": "530068",
-      "district": "Banglore"
+      "name": "Hyderabad",
+      "shortName": "HD",
+      "pinCode": "500001",
+      "district": "Delhi"
     },
     {
       "id": 4,
@@ -25,14 +25,6 @@
   "addressdetails": [
     {
       "id": 12,
-      "addressLine1": "E-2, 1002, Neelkanth Residency",
-      "addressLine2": "Cross Road",
-      "landMark": "Near Madhuram LG Showroom",
-      "locality": "Badlapur",
-      "cityId": "5"
-    },
-    {
-      "id": 12,
       "addressLine1": "E-2, 1000, Neelkanth Residency",
       "addressLine2": "Cross Road",
       "landMark": "Near Madhuram LG Showroom",
@@ -40,11 +32,11 @@
       "cityId": "5"
     },
     {
-      "id": 12,
-      "addressLine1": "E-2, 1000, Neelkanth Residency",
+      "id": 16,
+      "addressLine1": "D-5, 1000, Neelkanth Residency",
       "addressLine2": "Cross Road",
-      "landMark": "Near Madhuram LG Showroom",
-      "locality": "Amravati",
+      "landMark": "",
+      "locality": "Ratnagiri",
       "cityId": "5"
     }
   ],
@@ -88,20 +80,20 @@
       "cityId": "5"
     },
     {
-      "id": 13,
-      "addressLine1": "E-2, 1000, Neelkanth Residency",
-      "addressLine2": "Cross Road",
-      "landMark": "Near Madhuram LG Showroom",
-      "locality": "Badlapur",
-      "cityId": "5"
-    },
-    {
       "id": 14,
       "addressLine1": "D-2, 999, Neelkanth Residency",
       "addressLine2": "Cross Road",
       "landMark": "Lg Showroom",
       "locality": "Akroli",
       "cityId": "4"
+    },
+    {
+      "addressLine1": "fffdsfd",
+      "addressLine2": "sfffsdf",
+      "landMark": "sfff",
+      "locality": "sdfdfsfs",
+      "cityId": "4",
+      "id": 15
     }
   ]
 }
