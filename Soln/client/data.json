@@ -1,11 +1,11 @@
 {
   "cities": [
     {
-      "id": 3,
-      "name": "Hyderabad",
-      "shortName": "HD",
+      "name": "Lower",
+      "shortName": "L",
       "pinCode": "500001",
-      "district": "Delhi"
+      "district": "Lower",
+      "id": 3
     },
     {
       "id": 4,
@@ -16,10 +16,10 @@
     },
     {
       "id": 5,
-      "name": "Kolkata",
+      "name": "Delhi",
       "shortName": "KK",
       "pinCode": "401200",
-      "district": "Delhah"
+      "district": "Delhahddasa"
     }
   ],
   "addressdetails": [
@@ -94,6 +94,14 @@
       "locality": "sdfdfsfs",
       "cityId": "4",
       "id": 15
+    },
+    {
+      "addressLine1": "ddds",
+      "addressLine2": "sdd",
+      "landMark": "dsdsa",
+      "locality": "adad",
+      "cityId": "4",
+      "id": 16
     }
   ]
 }

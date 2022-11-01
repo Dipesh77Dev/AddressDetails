@@ -30,7 +30,7 @@ const Address = () => {
 
   const addAddressData = async (e) => {
     e.preventDefault();
-    e.target.reset();
+    // e.target.reset();
     await axios.post("http://localhost:3000/address",address);
     alert('Data Inserted');
       loadAddress();
