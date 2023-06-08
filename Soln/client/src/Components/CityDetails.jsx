@@ -12,13 +12,13 @@ const CityDetails = () => {
   }, []);
 
   const getCity = async () =>{
-    const result = await axios.get("http://localhost:3000/cities") // console.log(result);
+    const result = await axios.get("http://localhost:3003/cities") // console.log(result);
       setCity(result.data.reverse()); // setCity(result.data);
   };
   // console.log(res);
 
   const deleteCity = async (id) => {
-    await axios.delete(`http://localhost:3000/cities/${id}`);
+    await axios.delete(`http://localhost:3003/cities/${id}`);
     getCity();
   }
 

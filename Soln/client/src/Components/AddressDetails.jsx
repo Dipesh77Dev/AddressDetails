@@ -12,12 +12,12 @@ const AddressDetails = () => {
   }, []);
 
   const getAddress = async () =>{
-    const result = await axios.get("http://localhost:3000/addressdetails");
+    const result = await axios.get("http://localhost:3003/addressdetails");
       setAddress(result.data);
   }
 
   const deleteAddress = async (id) => {
-    await axios.delete(`http://localhost:3000/addressdetails/${id}`);
+    await axios.delete(`http://localhost:3003/addressdetails/${id}`);
     getAddress();
   }
 

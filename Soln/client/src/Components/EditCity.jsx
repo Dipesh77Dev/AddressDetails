@@ -25,13 +25,13 @@ const EditCity = () => {
 
   const onSubmit = async(e) => {
      e.preventDefault();
-     await axios.put(`http://localhost:3000/cities/${id}`, city);
+     await axios.put(`http://localhost:3003/cities/${id}`, city);
     navigate("/city", {replace : true});
   }
 
   const loadCity = async () => {
     // const result = await axios.get("http://localhost:3000/cities/" + id);
-    const result = await axios.get(`http://localhost:3000/cities/${id}`);
+    const result = await axios.get(`http://localhost:3003/cities/${id}`);
     setCity(result.data);
   };
 

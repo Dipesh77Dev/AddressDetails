@@ -24,12 +24,12 @@ const EditAddress = () => {
 
   const onSubmit = async(e) => {
      e.preventDefault(); 
-     await axios.put(`http://localhost:3000/addressdetails/${id}`, address);
+     await axios.put(`http://localhost:3003/addressdetails/${id}`, address);
     navigate("/address", {replace : true});
   }
   
   const loadAddress = async () => {
-    const result = await axios.get(`http://localhost:3000/addressdetails/${id}`);
+    const result = await axios.get(`http://localhost:3003/addressdetails/${id}`);
     setAddress(result.data);
   };
 

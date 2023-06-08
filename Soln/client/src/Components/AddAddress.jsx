@@ -24,7 +24,7 @@ const AddAddress = () => {
 
   const onSubmit = async(e) => {
      e.preventDefault(); // if we not give this it will show what we type 
-     await axios.post("http://localhost:3000/addressdetails", address);
+     await axios.post("http://localhost:3003/addressdetails", address);
     //  <Navigate to = "/city" />
     navigate("/address", {replace : true});
   }

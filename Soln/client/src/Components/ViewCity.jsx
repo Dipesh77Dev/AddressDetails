@@ -17,7 +17,7 @@ const ViewCity = () => {
   }, []);
 
   const loadUser = async () => {
-    const res = await axios.get(`http://localhost:3000/cities/${id}`);
+    const res = await axios.get(`http://localhost:3003/cities/${id}`);
     setCity(res.data);
   };
    return (

@@ -18,7 +18,7 @@ const ViewAddress = () => {
   }, []);
 
   const loadUser = async () => {
-    const res = await axios.get(`http://localhost:3000/addressdetails/${id}`);
+    const res = await axios.get(`http://localhost:3003/addressdetails/${id}`);
     setAddress(res.data);
   };
    return (

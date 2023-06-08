@@ -20,6 +20,13 @@
       "shortName": "KK",
       "pinCode": "401200",
       "district": "Delhahddasa"
+    },
+    {
+      "name": "NALASOPARA",
+      "shortName": "NALASOPARA",
+      "pinCode": "401203",
+      "district": "NALASOPARA",
+      "id": 6
     }
   ],
   "addressdetails": [
@@ -38,6 +45,14 @@
       "landMark": "",
       "locality": "Ratnagiri",
       "cityId": "5"
+    },
+    {
+      "addressLine1": "B/104, SIDDHAI APT, NEAR DATTA MANDIR, SAMEL PADA, NALASOPARA WEST",
+      "addressLine2": "eee",
+      "landMark": "dgg",
+      "locality": "dgdg",
+      "cityId": "233232",
+      "id": 17
     }
   ],
   "city": [

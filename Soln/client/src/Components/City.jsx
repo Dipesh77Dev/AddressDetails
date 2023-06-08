@@ -8,7 +8,7 @@ const City = () => {
   const [record, setRecord] = useState([]);
 
   const loadCity = async () => {
-    const result = await axios.get("http://localhost:3000/city");
+    const result = await axios.get("http://localhost:3003/city");
     setRecord(result.data);
   };
 
@@ -29,7 +29,7 @@ const City = () => {
   const addCityData = async (e) => {
     e.preventDefault();
     e.target.reset();
-    await axios.post("http://localhost:3000/city",city);
+    await axios.post("http://localhost:3003/city",city);
     alert('Data Inserted');
      
     loadCity();

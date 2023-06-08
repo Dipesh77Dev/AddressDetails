@@ -9,7 +9,7 @@ const Address = () => {
   const [record, setRecord] = useState([]);
 
   const loadAddress = async () => {
-    const result = await axios.get("http://localhost:3000/address");
+    const result = await axios.get("http://localhost:3003/address");
     setRecord(result.data);
   };
 
@@ -31,7 +31,7 @@ const Address = () => {
   const addAddressData = async (e) => {
     e.preventDefault();
     // e.target.reset();
-    await axios.post("http://localhost:3000/address",address);
+    await axios.post("http://localhost:3003/address",address);
     alert('Data Inserted');
       loadAddress();
 };
